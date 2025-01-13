@@ -1,32 +1,24 @@
-$(document).ready(function(){
-    $('header button').click(function(){
-        $('form').slideDown();
-    })
-    
-
-    $('#botao-cancelar').click(function(){
-        $('form').slideUp();
-    })
-
-    
-
-
-    $('form').on('submit',function(e){
+$(document).ready(function() {
+    $('form').on('submit', function(e) {
         e.preventDefault();
-        const enderecoNovaImagem = $('#endereco-imagem-nova').val();
-        const novoItem = $('<li style = "display: none"></li>');
-        $(`<img src="${enderecoNovaImagem}"/>`).appendTo(novoItem)
-        $(`
-            <div class="overlay-img-link">
-            <a href="${enderecoNovaImagem}" target = "_blank" title = "Ver imagem em tamanho real">
-                Ver imagem em tamanho real
-            </a>
-            </div>`).appendTo(novoItem)
 
-            $(novoItem).appendTo('ul');
+        const nomeTarefa = $('#item-lista').val().trim();
 
-            $(novoItem).fadeIn();
+        if (nomeTarefa) {
+            const novoItem = $(`
+                <li>
+                    <input type="checkbox" class="check" title="Marcar como feita"> <span>${nomeTarefa}</span>
+                </li>
+            `).hide();
 
-        $('#endereco-imagem-nova').val('');
-    })
-})
+            $('#tarefas').append(novoItem);
+            novoItem.fadeIn(500);
+
+            novoItem.find('.check').on('change', function() {
+                $(this).next('span').toggleClass('completed');
+            });
+
+            $('#item-lista').val('');
+        }
+    });
+});

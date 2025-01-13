@@ -13,44 +13,26 @@
 </head>
 
 <body>
+
     <header>
-        <h1>Galeria de Fotos</h1>
-        <button type="button">Nova imagem +</button>
+        <h1>Lista de Tarefas</h1>
     </header>
-    <form>
-        <h2>Inserir nova imagem</h2>
-        <input type="url" id="endereco-imagem-nova" required placeholder="URL da imagem">
-        <button type="submit">Adicionar</button>
-        <button id = 'botao-cancelar' type="reset">Cancelar</button>
+    <form action="">
+        <div class="todo-list">
+            <div class="input">
+                <input type="text" id="item-lista" placeholder="Adcione uma tarefa">
+            </div>
+            <div class="add">
+                <button type="submit">+</button>
+            </div>
+        </div>
+    
+
+        <div class="list">
+            <ul id="tarefas">
+            </ul>
+        </div>
     </form>
-
-    <ul>
-        <li>
-            <img src="/images/foto1.jpg" alt="pintura de gatinho">
-            <div class="overlay-img-link">
-                <a href="/images/foto1.jpg" target="_blank">
-                    ver imagem em tamanho real
-                </a>
-            </div>
-        </li>
-        <li>
-            <img src="/images/foto2.jpg" alt="pintura de gatinho">
-            <div class="overlay-img-link">
-                <a href="/images/foto2.jpg" target="_blank">
-                    ver imagem em tamanho real
-                </a>
-            </div >
-        </li>
-        <li>
-            <img src="/images/foto3.jpg" alt="pintura de gatinho">
-            <div class="overlay-img-link">
-                <a href="/images/foto3.jpg" target="_blank">
-                    ver imagem em tamanho real
-                </a>
-            </div>
-        </li>
-    </ul>
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="main.js"></script>
 </body>
